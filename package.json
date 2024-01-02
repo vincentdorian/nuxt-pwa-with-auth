@@ -1,0 +1,23 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "generate-pwa-assets": "pwa-assets-generator --preset minimal-2023 public/logo.png"
+  },
+  "devDependencies": {
+    "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
+    "@pinia/nuxt": "^0.5.1",
+    "@vite-pwa/assets-generator": "^0.2.2",
+    "@vite-pwa/nuxt": "^0.4.0",
+    "nuxt": "^3.9.0",
+    "nuxt-auth-utils": "^0.0.13",
+    "vue": "^3.4.3",
+    "vue-router": "^4.2.5"
+  }
+}
