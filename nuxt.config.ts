@@ -2,14 +2,14 @@
 export default defineNuxtConfig({
 	devtools: { enabled: true },
 	modules: [
-        'nuxt-auth-utils',
-        '@vite-pwa/nuxt',
-        '@pinia/nuxt',
-        '@pinia-plugin-persistedstate/nuxt',
-        '@nuxt/ui',
-        '@vueuse/nuxt',
-        "@nuxt/image"
-    ],
+		'nuxt-auth-utils',
+		'@vite-pwa/nuxt',
+		'@pinia/nuxt',
+		'@pinia-plugin-persistedstate/nuxt',
+		'@nuxt/ui',
+		'@vueuse/nuxt',
+		'@nuxt/image',
+	],
 	routeRules: {
 		'/': {
 			prerender: true,
@@ -27,42 +27,6 @@ export default defineNuxtConfig({
 	nitro: {
 		prerender: {
 			crawlLinks: true,
-		},
-	},
-	pwa: {
-		registerType: 'autoUpdate',
-		manifest: {
-			name: 'Nuxt Vite PWA',
-			short_name: 'NuxtVitePWA',
-			theme_color: '#ffffff',
-			icons: [
-				{
-					src: 'pwa-192x192.png',
-					sizes: '192x192',
-					type: 'image/png',
-				},
-				{
-					src: 'pwa-512x512.png',
-					sizes: '512x512',
-					type: 'image/png',
-				},
-				{
-					src: 'pwa-512x512.png',
-					sizes: '512x512',
-					type: 'image/png',
-					purpose: 'any maskable',
-				},
-			],
-		},
-		workbox: {
-			cleanupOutdatedCaches: true,
-			clientsClaim: true,
-			navigateFallback: '/',
-			globPatterns: ['**/*.{js,css,html,png,svg,ico,json}'],
-		},
-		devOptions: {
-			enabled: true,
-			type: 'module',
 		},
 	},
 })
