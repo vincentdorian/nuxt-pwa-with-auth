@@ -1,10 +1,13 @@
 <script setup lang="ts">
 definePageMeta({
-    middleware: 'auth'
+	middleware: 'auth',
 })
 </script>
+
 <template>
-<div>
-Secure
-</div>
+	<UContainer>
+		<h1 class="text-xl">
+			Secure
+		</h1>
+	</UContainer>
 </template>

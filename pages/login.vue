@@ -1,30 +1,43 @@
 <script setup>
-const { loggedIn, user, session, clear, fetch: fetchSession } = useUserSession()
+definePageMeta({
+	layout: false,
+})
 
-if (loggedIn.value) {
-  navigateTo('/')
-}
+const { loggedIn } = useUserSession()
 
-const login = async () => {
-  const {data} = await useFetch('/api/auth/login')
+const session = useSessionStore()
 
-  await fetchSession()
+const state = reactive({
+	name: '',
+})
 
-  await navigateTo('/')
+if (loggedIn.value)
+	navigateTo('/')
 
+async function login() {
+	await session.signIn(state.name)
+
+	await navigateTo('/')
 }
 </script>
 
 <template>
-  <div v-if="loggedIn">
-    <h1>Welcome {{ user.login }}!</h1>
-    <p>Logged in since {{ session.loggedInAt }}</p>
-    <button @click="clear">Logout</button>
-  </div>
-  <div v-else>
-    <h1>Not logged in</h1>
-    <button @click="login()">
-    Login
-    </button>
-  </div>
+	<UContainer>
+		<UCard class="mt-32 max-w-md mx-auto">
+			<p class="mt-4">
+				You are not logged in. Enter your name to login.
+			</p>
+
+			<UForm :state="state" class="mt-4" @submit="login()">
+				<UInput
+					v-model="state.name"
+					label="Name"
+				/>
+
+				<UButton type="submit" class="mt-4">
+					Login
+				</UButton>
+			</UForm>
+		</UCard>
+	</UContainer>
 </template>
