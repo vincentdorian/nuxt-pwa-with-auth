@@ -3,7 +3,6 @@ export default defineNuxtConfig({
 	devtools: { enabled: true },
 	modules: [
 		'nuxt-auth-utils',
-		'@vite-pwa/nuxt',
 		'@pinia/nuxt',
 		'@pinia-plugin-persistedstate/nuxt',
 		'@nuxt/ui',
