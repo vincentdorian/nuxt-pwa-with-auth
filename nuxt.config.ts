@@ -59,6 +59,21 @@ export default defineNuxtConfig({
 			clientsClaim: true,
 			navigateFallback: '/',
 			globPatterns: ['**/*.{js,css,html,png,svg,ico,json}'],
+			navigateFallbackAllowlist: [/\/$/],
+			runtimeCaching: [{
+				urlPattern: ({ request, sameOrigin, url }) => {
+					// eslint-disable-next-line no-console
+					console.log(url)
+					return sameOrigin && (request.mode === 'navigate' || /^\/api\//.test(url.pathname))
+				},
+				handler: 'NetworkOnly',
+				options: {
+					plugins: [{
+						handlerDidError: async () => Response.redirect('/?error', 302),
+						cacheWillUpdate: async () => null,
+					}],
+				},
+			}],
 		},
 		devOptions: {
 			enabled: true,
