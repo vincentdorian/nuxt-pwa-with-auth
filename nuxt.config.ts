@@ -2,22 +2,17 @@
 export default defineNuxtConfig({
 	devtools: { enabled: true },
 	modules: [
-        'nuxt-auth-utils',
-        '@vite-pwa/nuxt',
-        '@pinia/nuxt',
-        '@pinia-plugin-persistedstate/nuxt',
-        '@nuxt/ui',
-        '@vueuse/nuxt',
-        "@nuxt/image"
-    ],
-	routeRules: {
-		'/': {
-			prerender: true,
-		},
-	},
+		'nuxt-auth-utils',
+		'@vite-pwa/nuxt',
+		'@pinia/nuxt',
+		'@pinia-plugin-persistedstate/nuxt',
+		'@nuxt/ui',
+		'@vueuse/nuxt',
+		'@nuxt/image',
+	],
 	experimental: {
 		appManifest: true,
-		payloadExtraction: true,
+		/* payloadExtraction: true, */
 		asyncContext: true,
 		restoreState: true,
 	},
@@ -27,6 +22,17 @@ export default defineNuxtConfig({
 	nitro: {
 		prerender: {
 			crawlLinks: true,
+		},
+	},
+	routeRules: {
+		'/': {
+			prerender: true,
+		},
+		'/login': {
+			prerender: true,
+		},
+		'/home': {
+			prerender: true,
 		},
 	},
 	pwa: {
@@ -63,6 +69,7 @@ export default defineNuxtConfig({
 		devOptions: {
 			enabled: true,
 			type: 'module',
+			navigateFallback: '/',
 		},
 	},
 })

@@ -1,8 +1,6 @@
 <script setup lang="ts">
 const session = useSessionStore()
 
-const { loggedIn } = useUserSession()
-
 const navItems = [
 	{ name: 'Home', path: '/home' },
 	{ name: 'Secure', path: '/secure' },
@@ -17,7 +15,7 @@ async function logout() {
 
 <template>
 	<div>
-		<header v-if="loggedIn">
+		<header v-if="session.isLoggedIn">
 			<UContainer>
 				<div class="h-20 flex flex-row items-center justify-between">
 					<div class="flex flex-row items-center gap-x-8">

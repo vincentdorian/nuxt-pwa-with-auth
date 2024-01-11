@@ -23,10 +23,13 @@ export const useSessionStore = defineStore('session', () => {
 		navigateTo('/login')
 	}
 
+	const isLoggedIn = computed(() => !!user.value)
+
 	return {
 		user,
 		signIn,
 		signOut,
+		isLoggedIn,
 	}
 }, {
 	persist: {
