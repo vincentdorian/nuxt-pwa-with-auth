@@ -14,8 +14,8 @@ async function logout() {
 </script>
 
 <template>
-	<div>
-		<header v-if="session.isLoggedIn">
+	<div v-if="session.isLoggedIn">
+		<header>
 			<UContainer>
 				<div class="h-20 flex flex-row items-center justify-between">
 					<div class="flex flex-row items-center gap-x-8">
